@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kospi fear and greed</title>
+</head>
+<body>
+    <div class="date"></div>
+    <script>
+        let toda=new Date()
+        let toyy=toda.getFullYear()
+        let tomm=toda.getMonth()+1
+        let todd=toda.getDate()
+        let todo=`${toyy}${tomm<10?'0'+tomm:tomm}${todd<10?'0'+todd:todd}`
+        console.log(todo)
+        fetch(`https://apis.data.go.kr/1160100/service/GetMarketIndexInfoService/getStockMarketIndex?resultType=json&serviceKey=sOb7ot96RtMpa2P3PSutZXvhCjcAkCB3wMSdc5uZW4tcoMtPAkako73u8bjtGoFQLK7A537L6zWeGTAiuMd08g%3D%3D&basDt=20240730&idxNm=C01501D86`).then(a=>a.json()).then(b=>console.log(b))
+    </script>
+</body>
+</html>
