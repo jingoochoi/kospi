@@ -9,12 +9,16 @@
     <div class="date"></div>
     <script>
         let toda=new Date()
+        toda.setDate(toda.getDate() - 1);
         let toyy=toda.getFullYear()
         let tomm=toda.getMonth()+1
         let todd=toda.getDate()
         let todo=`${toyy}${tomm<10?'0'+tomm:tomm}${todd<10?'0'+todd:todd}`
         console.log(todo)
-        fetch(`https://apis.data.go.kr/1160100/service/GetMarketIndexInfoService/getStockMarketIndex?resultType=json&serviceKey=sOb7ot96RtMpa2P3PSutZXvhCjcAkCB3wMSdc5uZW4tcoMtPAkako73u8bjtGoFQLK7A537L6zWeGTAiuMd08g%3D%3D&basDt=20240730&idxNm=C01501D86`).then(a=>a.json()).then(b=>console.log(b))
+        fetch(`https://apis.data.go.kr/1160100/service/GetMarketIndexInfoService/getStockMarketIndex?resultType=json&serviceKey=sOb7ot96RtMpa2P3PSutZXvhCjcAkCB3wMSdc5uZW4tcoMtPAkako73u8bjtGoFQLK7A537L6zWeGTAiuMd08g%3D%3D&basDt=20240702&idxNm=코스피`).then(a=>a.json()).then(b=>{
+            let rate=b.response.body.items.item[0].fltRt
+            console.log(rate*1.5+50)
+        })
     </script>
 </body>
 </html>
